@@ -40,7 +40,7 @@ yarn or npm run server
 API's | RDBMS and Data Persistence | Authentication | Form Testing
 
 # API Endpoints
-Use Base URL: 
+Use Base URL: https://kickstarter-success-bw.herokuapp.com/
 
 Register & Login 
 | Method | Route                  | Description                                      |
