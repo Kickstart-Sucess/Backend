@@ -47,6 +47,7 @@ Register & Login
 |--------|------------------------|--------------------------------------------------|
 | POST   | /api/auth/register     | registers new users                              |
 | POST   | /api/auth/login        | logins into user account                         |
+| GET    | /api/auth/logout       | logs out of user account                         |
 
 Campaigns
 | Method | Route                  | Description                                      |
