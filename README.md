@@ -129,6 +129,7 @@ Expected Response
 {
     "message": "successfully logged out"
 }
+```
 
 ## Campaign Endpoints
 ### GET All campaigns
