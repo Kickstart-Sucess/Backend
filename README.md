@@ -52,11 +52,10 @@ Users
 | Method | Route                  | Description                                      |
 |--------|------------------------|--------------------------------------------------|
 | GET    | /api/campaigns         | returns array of campaigns in database           |
-| GET    | /api/users/:id         | returns users specified by :id      --NOT READY  |
+| GET    | /api/campaigns/:id     | returns campaigns specified by :id  --NOT READY  |
 | PUT    | /api/campaigns/:id     | updates campaign specified by :id                |
-| GET    | /api/users/:id/stories | returns stories created by user specified by :id |
 | POST   | /api/campaigns         | creates & returns new campaign                   |
-| DELETE | /api/campaigns/:id     | deletes campaign specified by :id                    |
+| DELETE | /api/campaigns/:id     | deletes campaign specified by :id                |
 
 <!-- 
 Stories
