@@ -60,4 +60,18 @@ router.post('/login', async (req, res, next) => {
 	}
 });
 
+router.get('/logout', (req, res) => {
+    if(req.session) {
+        req.session.destroy(error => {
+            if(error) {
+                res.status(400).json({message: "could not log out: ", why: error})
+            } else {
+                res.status(200).json({message: 'successfully logged out'});
+            }
+        })
+    } else {
+        res.end();
+    }
+})
+
 module.exports = router;

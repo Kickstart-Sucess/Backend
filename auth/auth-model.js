@@ -18,7 +18,7 @@ function add(user) {
 }
 
 function findById(id) {
-    return db('users').select('id', 'username').where({id}).first();
+    return db('users').select('id', 'username', 'password', 'age', 'email').where({id}).first();
 } 
 
 module.exports = {
