@@ -23,7 +23,7 @@ module.exports = {
 
   staging: {
     client: 'sqlite3',
-    connection: process.env.DATABASE_URL,
+    connection: './database/campaigns.db3',
     pool: {
       min: 2,
       max: 10
@@ -38,7 +38,7 @@ module.exports = {
 
   production: {
     client: 'sqlite3',
-    connection: process.env.DATABASE_URL,
+    connection: './database/campaigns.db3',
     pool: {
       min: 2,
       max: 10
