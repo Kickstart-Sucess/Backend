@@ -22,7 +22,7 @@ module.exports = {
   },
 
   staging: {
-    client: 'pg',
+    client: 'sqlite3',
     connection: process.env.DATABASE_URL,
     pool: {
       min: 2,
@@ -37,7 +37,7 @@ module.exports = {
   },
 
   production: {
-    client: 'pg',
+    client: 'sqlite3',
     connection: process.env.DATABASE_URL,
     pool: {
       min: 2,

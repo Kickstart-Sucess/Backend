@@ -6,7 +6,7 @@ exports.up = function(knex) {
         table.string('username').notNull().unique();
         table.string('password').notNull();
         table.integer('age').notNull();
-        table.text('email').notNull();
+        table.text('email').notNull().unique();
     })
 
     .createTable('campaigns', table => {
