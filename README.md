@@ -51,14 +51,14 @@ Register & Login
 Users
 | Method | Route                  | Description                                      |
 |--------|------------------------|--------------------------------------------------|
-| GET    | /api/users             | returns array of users in database               |
-| GET    | /api/users/:id         | returns users specified by :id                   |
-| PUT    | /api/users/:id         | updates user specified by :id                    |
+| GET    | /api/campaigns         | returns array of campaigns in database           |
+| GET    | /api/users/:id         | returns users specified by :id      --NOT READY  |
+| PUT    | /api/campaigns/:id     | updates campaign specified by :id                |
 | GET    | /api/users/:id/stories | returns stories created by user specified by :id |
-| POST   | /api/:id/stories       | creates & returns new story                      |
-| DELETE | /api/users/:id         | deletes user specified by :id                    |
+| POST   | /api/campaigns         | creates & returns new campaign                   |
+| DELETE | /api/campaigns/:id     | deletes campaign specified by :id                    |
 
-
+<!-- 
 Stories
 | Method | Route                  | Description                                      |
 |--------|------------------------|--------------------------------------------------|
@@ -75,7 +75,7 @@ Photos
 | POST   | /api/photos           | creates & returns new story                      |
 | PUT    | /api/photos/:id       | updates photos specified by :id                 |
 | DELETE | /api/photos/:id       | deletes photos specified by :id                 |
-
+ -->
 
 ## Register Endpoint
 ```js
@@ -97,7 +97,8 @@ Expected Response
         "id": 4,
         "username": "new_user",
         "password": "$2a$08$Sp/WntMm7eAZnDn3tp40tOAp77T8CTMUel8bqZGD3CoJcuSrH.NZ6",
-        "email": "JaneDoe@gmail.com"
+        "email": "JaneDoe@gmail.com",
+        "age": 18
     }
 ```
 
@@ -115,113 +116,86 @@ Expected Body
 Expected Response
 ```js
 {
-    "message": "Welcome to your journal:",
-    "user": {
-        "id": 4,
-        "username": "new_user",
-        "password": "$2a$08$Sp/WntMm7eAZnDn3tp40tOAp77T8CTMUel8bqZGD3CoJcuSrH.NZ6",
-        "firstName": "Jane",
-        "lastName": "Doe",
-        "gender": "female",
-        "age": 18,
-        "email": "JaneDoe@gmail.com"
-    },
+    "message": "Welcome test_user",
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoxMiwidXNlcm5hbWUiOiJuZXdfdXNlcjEyMTIxMiIsImlhdCI6MTU5ODQyMDg0NywiZXhwIjoxNTk4NDI4MDQ3fQ.YyR_rrRxYaDVTt3FPM155hPwbUAEFhyaDSOWqVOD8kM"
 }
 ```
 
-## User Endpoints
-### GET All Users
+## Logout Endpoint
 ```js
-GET /api/users
+GET /api/auth/logout
+```
+Expected Response 
+```js
+{
+    "message": "successfully logged out"
+}
 
-Expected Response: returns array of users in database 
+## Campaign Endpoints
+### GET All campaigns
+```js
+GET /api/campaigns
+
+Expected Response: returns array of campaigns in database 
 
 [
     {
         "id": 1,
-        "username": "test1",
-        "password": "password132",
-        "email": "test1@gmail.com",
-        "firstName": "billy"
-    },
-    {
-        "id": 2,
-        "username": "test2",
-        "password": "password132",
-        "email": "test2@gmail.com",
-        "firstName": "jack"
-    },
-    {
-        "id": 3,
-        "username": "test3",
-        "password": "password132",
-        "email": "test3@gmail.com",
-        "firstName": "bill"
-    },
-    {
-        "id": 4,
-        "username": "newb_user",
-        "password": "$2a$08$Sp/WntMm7eAZnDn3tp40tOAp77T8CTMUel8bqZGD3CoJcuSrH.NZ6",
-        "email": "Jane@gmail.com",
-        "firstName": "Jane"
+        "name": "Project Z",
+        "user_id": 1
     }
 ]
 ```
 
-### GET User By ID
+### POST campaign
 ```js
-GET /api/users/:id
+POST /api/campaigns
 
-Expected Response: returns array of users in database 
+Expected Body: 
+    {
+        "name": "test 123",
+        "user_id": 1
+    }
+
+Expected Response: returns object of created campaign in database 
 
     {
-        "id": 1,
-        "username": "test1",
-        "password": "password132",
-        "email": "test1@gmail.com",
-        "firstName": "billy"
+        "id": 3,
+        "name": "test 123"
     }
 ```
 
-### PUT User By ID
+### PUT Campaign By ID
 ```js
-PUT /api/users/:id
+PUT /api/campaigns/:id
 
 Expected Body:
     {
-        "username": "test123" //updated field
+        "name": "test123" //updated field
     }
 
-Expected Response: updates user specified by :id
+Expected Response: updates campaign specified by :id
 
-"user": [
+    [
         {
-            "id": 6,
-            "username": "lex710",
-            "password": "$2a$08$IjugfoeBx3Ffc16.Jbh86OJwaz3BeR0ehnIQcWwtvLrUS7z./KvvC",
-            "firstName": "lexi",
-            "lastName": "marie",
-            "gender": "female",
-            "age": 30,
-            "email": "lexitestemail@icloud.com"
+            "updated": 1
         }
     ]
 ```
 
-### DELETE User by ID
+### DELETE campaign by ID
 ```js
-DELETE /api/users/:id
+DELETE /api/campaigns/:id
 
-Expected Response: deletes user specified by :id
+Expected Response: deletes campaign specified by :id
 
 Expected Response: 
     {
-        "removed": 1
+        "deleted": 1
     }
 ```
 
-### GET Stories by user ID
+<!-- ### GET Stories by user ID
 ```js
 GET /api/users/:id/stories
 
@@ -461,4 +435,4 @@ Expected Response:
     {
         "removed": 1
     }
-```
+``` -->
