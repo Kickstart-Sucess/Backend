@@ -6,9 +6,9 @@
 - **[API Endpoints](#api-endpoints)**<br>
 - **[Register Endpoint](##register-endpoint)**<br>
 - **[Login Endpoint](##login-endpoint)**<br>
-- **[User Endpoints](##user-endpoint)**<br>
-- **[Stories Endpoints](##stories-endpoints)**<br>
-- **[Photos Endpoints](##photos-endpoints)**
+- **[Logout Endpoint](##logout-endpoint)**<br>
+- **[Campaign Endpoints](##user-endpoint)**<br>
+- **[Metrics Endpoints](##metrics-endpoints)**<br>
 
 # backend-api
 Back-end RESTful API
