@@ -7,7 +7,7 @@
 - **[Register Endpoint](##register-endpoint)**<br>
 - **[Login Endpoint](##login-endpoint)**<br>
 - **[Logout Endpoint](##logout-endpoint)**<br>
-- **[Campaign Endpoints](##user-endpoint)**<br>
+- **[Campaign Endpoints](##campaign-endpoint)**<br>
 - **[Metrics Endpoints](##metrics-endpoints)**<br>
 
 # backend-api
@@ -48,7 +48,7 @@ Register & Login
 | POST   | /api/auth/register     | registers new users                              |
 | POST   | /api/auth/login        | logins into user account                         |
 
-Users
+Campaigns
 | Method | Route                  | Description                                      |
 |--------|------------------------|--------------------------------------------------|
 | GET    | /api/campaigns         | returns array of campaigns in database           |
