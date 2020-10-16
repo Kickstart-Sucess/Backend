@@ -28,7 +28,17 @@ router.get('/', async (req, res, next) => {
         const campaigns = await Campaigns.find();
         res.status(200).json(campaigns);
     } catch(error) {
-        next(error);
+        res.status(404).json({message: "could not find any campaigns"});
+    }
+})
+
+router.get('/:id', (req, res) => {
+    try {
+        const id = req.params.id;
+        const campaign = await Campaigns.findById(id);
+        res.status(200).json(campaign);
+    } catch (error) {
+        res.status(404).json({message: "could not find that campaign by id"});
     }
 })
 

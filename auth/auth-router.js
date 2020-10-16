@@ -23,7 +23,7 @@ router.post('/register', async (req, res, next) => {
 
 		res.status(201).json(newUser)
 	} catch(err) {
-		next(err)
+		res.status(400).json({message: "must input username, password, age (integer), and email"})
 	}
 });
 
@@ -34,7 +34,7 @@ router.post('/login', async (req, res, next) => {
 
 		if (!user) {
 			return res.status(401).json({
-				message: "Invalid credentials",
+				message: "Username not found",
 			})
 		}
 
@@ -56,7 +56,7 @@ router.post('/login', async (req, res, next) => {
             token: token,
 		})
 	} catch(err) {
-		next(err)
+		next(err);
 	}
 });
 
