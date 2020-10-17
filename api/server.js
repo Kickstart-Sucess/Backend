@@ -9,6 +9,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 
 const authRouter = require('../auth/auth-router.js');
+const usersRouter = require('../users/users-router');
 const campaignRouter = require('../campaigns/campaigns-router.js');
 const authMiddleware = require('../auth/restricted-middleware.js');
 
@@ -41,6 +42,7 @@ server.use(express.json());
 server.use(session(sessionConfig));
 
 server.use('/api/auth', authRouter);
+server.use('/api/users', authMiddleware.restrict(), usersRouter);
 server.use('/api/campaigns', authMiddleware.restrict(), campaignRouter);
 
 server.get('/', (req, res) => {
