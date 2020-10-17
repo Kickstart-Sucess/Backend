@@ -19,11 +19,12 @@ router.get('/', async (req, res, next) => {
         const users = await Users.find();
         const hasher = async function(password) {
             hashed = await bcrypt.hash(password, 15)
+            return hashed;
         }
         users.forEach(user => {
             user.password = hasher(user.password);
         })
-        
+
         if(users) {
             res.status(200).json(users);
         } else {
