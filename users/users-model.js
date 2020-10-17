@@ -1,8 +1,8 @@
 const db = require('../database/config');
 
-function add(campaign) {
+function add(user) {
     return db('users')
-        .insert(campaign, 'id')
+        .insert(user, 'id')
         .then(ids => {
             const [id] = ids;
             return findById(id);
