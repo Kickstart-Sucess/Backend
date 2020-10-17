@@ -18,7 +18,7 @@ router.get('/', async (req, res, next) => {
     try {
         const users = await Users.find();
         const hasher = async function(password) {
-            hashed = await bcrypt.hash(password, 15)
+            const hashed = await bcrypt.hash(password, 15)
             return hashed;
         }
         users.forEach(user => {
