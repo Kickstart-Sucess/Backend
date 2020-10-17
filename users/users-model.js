@@ -10,15 +10,15 @@ function add(user) {
 }
 
 function findById(id) {
-    return db('users').select('id', 'name', 'email', 'age', 'password').where({id}).first();
+    return db('users').select('id', 'username', 'email', 'age', 'password').where({id}).first();
 }
 
 function findBy(filter) {
-    return db('users').select('id', 'name', 'email', 'age', 'password').where(filter);
+    return db('users').select('id', 'username', 'email', 'age', 'password').where(filter);
 }
 
 function find() {
-    return db('users').select('id', 'name', 'email', 'age', 'password');
+    return db('users').select('id', 'username', 'email', 'age', 'password');
 }
 
 function remove(id) {
