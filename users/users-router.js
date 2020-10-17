@@ -4,30 +4,53 @@ const axios = require('axios');
 const Users = require('./users-model');
 
 router.get('/', async (req, res, next) => {
-    try {
-        const users = await Users.find();
-        if(users) {
-            res.status(200).json(users);
-        } else {
-            res.status(404).json({message: "could not find any users"});
-        }   
-    } catch(error) {
-        next(error);
-    }
+    Users.find()
+        .then(users => {
+            if(users) {
+                res.status(200).json(users);
+            } else {
+                res.status(404).json({message: "could not find any users"})
+            }
+        })
+        .catch(error => {
+            next(error);
+        })
+    // try {
+    //     const users = await Users.find();
+    //     if(users) {
+    //         res.status(200).json(users);
+    //     } else {
+    //         res.status(404).json({message: "could not find any users"});
+    //     }   
+    // } catch(error) {
+    //     next(error);
+    // }
 })
 
 router.get('/:id', async (req, res, next) => {
-    try {
-        const id = req.params.id;
-        const user = await Users.findById(id);
-        if(user) {
-            res.status(200).json(user);
-        } else {
-            res.status(404).json({message: "could not find user by id"});
-        }
-    } catch (error) {
-        next();
-    }
+    const id = req.params.id;
+    Users.findById(id)
+        .then(user => {
+            if(user) {
+                res.status(200).json(user);
+            } else {
+                res.status(404).json({message: "could not find user by id"});
+            }
+        })
+        .catch(error => {
+            next(error);
+        })
+    // try {
+    //     const id = req.params.id;
+    //     const user = await Users.findById(id);
+    //     if(user) {
+    //         res.status(200).json(user);
+    //     } else {
+    //         res.status(404).json({message: "could not find user by id"});
+    //     }
+    // } catch (error) {
+    //     next();
+    // }
 })
 
 router.delete('/:id', (req, res) => {
