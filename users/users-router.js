@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const axios = require('axios');
+const bcrypt = require("bcryptjs");
 
 const Users = require('./users-model');
 
@@ -17,6 +17,9 @@ router.get('/', async (req, res, next) => {
     //     })
     try {
         const users = await Users.find();
+        users.forEach(user => {
+            user.password = await bcrypt.hash(user.password, 15)
+        })
         if(users) {
             res.status(200).json(users);
         } else {
