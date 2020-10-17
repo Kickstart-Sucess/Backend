@@ -58,24 +58,24 @@ Campaigns
 | POST   | /api/campaigns         | creates & returns new campaign                   |
 | DELETE | /api/campaigns/:id     | deletes campaign specified by :id                |
 
-<!-- 
-Stories
+
+Users
 | Method | Route                  | Description                                      |
 |--------|------------------------|--------------------------------------------------|
-| GET    | /api/stories           | returns array of stories                         |
-| GET    | /api/stories/:id       | returns stories specified by :id                 |
-| PUT    | /api/stories/:id       | updates stories specified by :id                 |
-| DELETE | /api/stories/:id       | deletes stories specified by :id                 |
+| GET    | /api/users             | returns array of users                           |
+| GET    | /api/users/:id         | returns user specified by :id                    |
+| PUT    | /api/users/:id         | updates user specified by :id                    |
+| DELETE | /api/user/:id          | deletes user specified by :id                    |
 
-Photos
+<!-- Photos
 | Method | Route                  | Description                                      |
 |--------|------------------------|--------------------------------------------------|
 | GET    | /api/photos           | returns array of photos                         |
 | GET    | /api/photos/:id       | returns photos specified by :id                 |
 | POST   | /api/photos           | creates & returns new story                      |
 | PUT    | /api/photos/:id       | updates photos specified by :id                 |
-| DELETE | /api/photos/:id       | deletes photos specified by :id                 |
- -->
+| DELETE | /api/photos/:id       | deletes photos specified by :id                 | -->
+
 
 ## Register Endpoint
 ```js
@@ -195,53 +195,78 @@ Expected Response:
         "deleted": 1
     }
 ```
-
-<!-- ### GET Stories by user ID
+### GET users
 ```js
-GET /api/users/:id/stories
+GET /api/users
+
+Expected Response: returns array of all users
+
+Expected Response: 
+[
+    {
+        "id": 1,
+        "username": "nicopico",
+        "email": "chiku524@icloud.com",
+        "age": 25,
+        "password": "$2a$15$V.9IqAyj.cOEktdkjBd62OUH9J2ylz80KAerUB9pFcysi7uspAGYy"
+    },
+    {
+        "id": 2,
+        "username": "testing",
+        "email": "testing@gmail.com",
+        "age": 25,
+        "password": "$2a$15$olkyTbtgk25E6onHRkAWwe4t8RSNv2kkRhMwj3dNFSAzOKbFxydkW"
+    }
+]
+```
+
+### GET User by user ID
+```js
+GET /api/users/:id
 
 Expected Response: returns stories created by user specified by :id
 
 Expected Response:
     {
-        "id": 1,
-        "storyName": "Chinatown",
-        "photoLink": "https://i.ibb.co/DVN5Lnx/20200322-213304.jpg",
-        "user_id": 1,
-        "stories_id": 1
-    }
+        "id": 2,
+        "username": "testing",
+        "email": "testing@gmail.com",
+        "age": 25,
+        "password": "$2a$15$e9k2JvlYn.FF3ivK/qiCMewx/3OhtHO8Dwf755Pu7QlwQvQ7ixnxu"
+    }   
 ```
 
-### POST new story
+### Update User info
 ```js
-POST /api/users/:id/stories
+PUT /api/users/:id/
 
 Expected Body:
 
     {
-        "storyName": "test",
-        "storyCity": "test",
-        "storyCountry": "test",
-        "storyDesc": "test",
-        "storyPhoto": "test link"
-        "user_id": 3
+        "age": 100
     }
 
-Expected Response:  creates & returns new story
+Expected Response:  updates user info specified by id
 Expected Response
 
     {
-        "storyName": "test",
-        "storyCity": "test",
-        "storyCountry": "test",
-        "storyDesc": "test",
-        "storyDate": "2020-08-27 02:27:49",
-        "storyPhoto": "test link",
-        "user_id": 3
+        "updated": 1
     }
 ```
 
-## Stories Endpoints
+### Delete
+```js
+DELETE /api/users/:id
+
+Expected Response: deletes user specified by :id
+
+Expected Response: 
+    {
+        "removed": 1
+    }
+```
+
+<!-- ## Stories Endpoints
 ### Get All Stories
 ```js
 GET /api/stories
@@ -426,14 +451,4 @@ Expected Response:
         ]
 ```
 
-### Delete
-```js
-DELETE /api/photos/:id
-
-Expected Response: deletes photo specified by :id
-
-Expected Response: 
-    {
-        "removed": 1
-    }
-``` -->
+ -->
