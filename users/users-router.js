@@ -22,25 +22,16 @@ router.get('/', async (req, res, next) => {
             return hashed;
         }
 
-        users.forEach(user => {
-            const username = user.username;
-            const password = hasher(user.password);
-            const email = user.email;
-            const age = user.age;
-
-            const newUser = {
-                username, 
-                password,
-                email,
-                age
-            }
-            
-            if(user) {
-                res.status(200).json(newUser);
-            } else {
-                res.status(404).json({message: "could not find any users in the database"});
-            }
+        users.map(user => {
+            const hashed = user.password;
+            user.password = bcrypt.hash(hashed, 15)
         })
+
+        if(users) {
+            res.status(200).json(users);
+        } else {
+            res.status(404).json({message: "could not find any users"});
+        }   
     } catch(error) {
         next(error);
     }
