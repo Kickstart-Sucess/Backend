@@ -5,7 +5,7 @@ exports.seed = function(knex) {
     .then(function () {
       // Inserts seed entries
       return knex('campaigns').insert([
-        {name: 'Project X', user_id: 1}
+        {name: 'Project X', user_id: 1, imageURL: 'https://www.comtix.com/wp-content/uploads/2019/08/elections-campaign-1024x791.jpg'}
       ]);
     });
 };
