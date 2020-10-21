@@ -12,7 +12,13 @@ exports.up = function(knex) {
     .createTable('campaigns', table => {
         table.increments('id');
         table.text('name').notNull();
-        table.integer('user_id').notNull();
+        table.integer('user_id')
+            .unsigned()
+            .notNull()
+            .references('id')
+            .inTable('users')
+            .onDelete('CASCADE')
+            .onUpdate('CASCADE');
         table.text('imageURL').notNull();
     })
 
