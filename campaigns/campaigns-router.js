@@ -5,7 +5,7 @@ const Campaigns = require('./campaigns-model');
 
 router.post('/', async (req, res, next) => {
     try {
-        const {name, user_id} = req.body;
+        const {name, user_id, imageURL} = req.body;
         const campaign = await Campaigns.findBy({name}).first()
 
         if(campaign) {
@@ -13,7 +13,7 @@ router.post('/', async (req, res, next) => {
         }
 
         const newCampaign = await Campaigns.add({
-            name, user_id
+            name, user_id, imageURL
         })
 
         res.status(201).json(newCampaign);
