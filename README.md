@@ -144,7 +144,7 @@ Expected Response: returns array of campaigns in database
         "id": 1,
         "name": "Project Z",
         "user_id": 1,
-        "photoURL": 'https://www.comtix.com/wp-content/uploads/2019/08/elections-campaign-1024x791.jpg'
+        "imageURL": 'https://www.comtix.com/wp-content/uploads/2019/08/elections-campaign-1024x791.jpg'
     }
 ]
 ```
@@ -157,7 +157,7 @@ Expected Body:
     {
         "name": "test 123",
         "user_id": 1,
-        "photoURL": 'https://www.comtix.com/wp-content/uploads/2019/08/elections-campaign-1024x791.jpg'
+        "imageURL": 'https://www.comtix.com/wp-content/uploads/2019/08/elections-campaign-1024x791.jpg'
     }
 
 Expected Response: returns object of created campaign in database 
@@ -165,7 +165,7 @@ Expected Response: returns object of created campaign in database
     {
         "id": 3,
         "name": "test 123", 
-        "photoURL": 'https://www.comtix.com/wp-content/uploads/2019/08/elections-campaign-1024x791.jpg'
+        "imageURL": 'https://www.comtix.com/wp-content/uploads/2019/08/elections-campaign-1024x791.jpg'
     }
 ```
 
