@@ -67,14 +67,14 @@ Users
 | PUT    | /api/users/:id         | updates user specified by :id                    |
 | DELETE | /api/user/:id          | deletes user specified by :id                    |
 
-<!-- Photos
-| Method | Route                  | Description                                      |
-|--------|------------------------|--------------------------------------------------|
-| GET    | /api/photos           | returns array of photos                         |
-| GET    | /api/photos/:id       | returns photos specified by :id                 |
-| POST   | /api/photos           | creates & returns new story                      |
-| PUT    | /api/photos/:id       | updates photos specified by :id                 |
-| DELETE | /api/photos/:id       | deletes photos specified by :id                 | -->
+Metrics
+| Method | Route                      | Description                                  |
+|--------|----------------------------|----------------------------------------------|
+| POST   | /api/campaigns/:id/metrics | returns array of photos                      |
+<!-- | GET    | /api/photos/:id       | returns photos specified by :id                   |
+| POST   | /api/photos           | creates & returns new story                       |
+| PUT    | /api/photos/:id       | updates photos specified by :id                   |
+| DELETE | /api/photos/:id       | deletes photos specified by :id                   | -->
 
 
 ## Register Endpoint
@@ -277,15 +277,21 @@ POST /api/campaigns/:id/metrics
 Expected Body:
 
     {
-        "description": "going to make cars fly"
+        "item": "going to make cars fly"
     }
 
 Expected Response:  Prediction of success in a campaign based off of description
-Expected Response
+Expected Response:
 
-    {
-        "success-failure": 1
-    }
+{
+    "description": {
+        "item": "why is my description now showing up"
+    },
+    "prediction": {
+        "success_failure": "0"
+    },
+    "campaign_id": "2"
+}
 ```
 
 <!-- ### Get All Stories by ID
