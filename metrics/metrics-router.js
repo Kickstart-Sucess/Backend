@@ -20,3 +20,5 @@ router.post('/campaigns/:id/metrics', async (req, res, next) => {
         next(error)
     }
 })
+
+module.exports = router;
