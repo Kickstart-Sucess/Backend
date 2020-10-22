@@ -269,46 +269,26 @@ Expected Response:
     }
 ```
 
-<!-- ## Stories Endpoints
-### Get All Stories
+## Metrics Endpoints
+### Post Metrics to DS API
 ```js
-GET /api/stories
+POST /api/campaigns/:id/metrics
 
-Expected Response: List of all stories in database
+Expected Body:
 
-Expected Response:
-[
     {
-        "id": 1,
-        "storyName": "Chinatown",
-        "storyCity": "Bangkok",
-        "storyCountry": "Thailand",
-        "storyDate": "2020-08-25 05:38:15",
-        "storyDesc": "Out on a nightly excursion looking for something to eat",
-        "user_id": 1
-    },
-    {
-        "id": 2,
-        "storyName": "Sanctuary of Truth",
-        "storyCity": "Pattaya City",
-        "storyCountry": "Thailand",
-        "storyDate": "2020-08-25 05:38:15",
-        "storyDesc": "A daytime excursion visiting some local places.",
-        "user_id": 2
-    },
-    {
-        "id": 3,
-        "storyName": "Beach in Pattaya",
-        "storyCity": "Pattaya City",
-        "storyCountry": "Thailand",
-        "storyDate": "2020-08-25 05:38:15",
-        "storyDesc": "Taking a must needed rest after a weekend of fun in Pattaya",
-        "user_id": 3
+        "description": "going to make cars fly"
     }
-]
+
+Expected Response:  Prediction of success in a campaign based off of description
+Expected Response
+
+    {
+        "success-failure": 1
+    }
 ```
 
-### Get All Stories by ID
+<!-- ### Get All Stories by ID
 ```js
 GET /api/stories/:id
 

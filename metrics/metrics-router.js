@@ -3,11 +3,12 @@ const axios = require('axios');
 
 const Metrics = require('./metrics-model');
 
-router.post('/metrics', async (req, res, next) => {
+router.post('/campaigns/:id/metrics', async (req, res, next) => {
     try {
-        const {description, campaign_id} = req.body;
+        const {description} = req.body;
+        const id = req.params.id;
 
-        axios.post('https://kickstartersuccess.herokuapp.com/predict', {description: description, campaign_id: campaign_id})
+        axios.post('https://kickstartersuccess.herokuapp.com/predict', {description: description, campaign_id: id})
             .then(response => {
                 const predictions = response.data;
                 res.status(200).json({description: description, prediction: predictions})

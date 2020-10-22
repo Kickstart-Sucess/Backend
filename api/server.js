@@ -11,6 +11,7 @@ const helmet = require('helmet');
 const authRouter = require('../auth/auth-router.js');
 const usersRouter = require('../users/users-router.js');
 const campaignRouter = require('../campaigns/campaigns-router.js');
+const metricsRouter = require('../metrics/metrics-router');
 const authMiddleware = require('../auth/restricted-middleware.js');
 
 const server = express();
@@ -44,6 +45,7 @@ server.use(session(sessionConfig));
 server.use('/api/auth', authRouter);
 server.use('/api/users', authMiddleware.restrict(), usersRouter);
 server.use('/api/campaigns', authMiddleware.restrict(), campaignRouter);
+server.use('/api/campaigns/:id/metrics', authMiddleware.restrict(), metricsRouter);
 
 server.get('/', (req, res) => {
     res.json({api: 'up and running!'});
