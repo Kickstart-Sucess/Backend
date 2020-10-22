@@ -8,7 +8,7 @@ router.post('/campaigns/:id/metrics', async (req, res, next) => {
         const {description} = req.body;
         const id = req.params.id;
 
-        axios.post('https://kickstartersuccess.herokuapp.com/predict', {description: description})
+        axios.post('https://kickstartersuccess.herokuapp.com/predict', {item: description})
             .then(response => {
                 const predictions = response.data;
                 res.status(200).json({description: description, prediction: predictions, campaign_id: id})
