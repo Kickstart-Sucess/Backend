@@ -19,7 +19,7 @@ router.post('/', async (req, res, next) => {
         res.status(201).json(newCampaign);
 
     } catch(error) {
-        next(error);
+        res.status(400).json({message: "Please input name, user_id and imageURL"});
     }
 })
 
