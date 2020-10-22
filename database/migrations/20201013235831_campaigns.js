@@ -31,14 +31,8 @@ exports.up = function(knex) {
             .inTable('campaigns')
             .onDelete('CASCADE')
             .onUpdate('CASCADE');
-        table.integer('monetary_goal')
-            .notNull();
         table.text('description')
-            .notNull();
-        table.integer('campaign_length')
-            .notNull();
-        table.text('category')
-            .notNull();    
+            .notNull();  
     })
 };
 

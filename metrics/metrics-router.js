@@ -5,15 +5,15 @@ const Metrics = require('./metrics-model');
 
 router.post('/metrics', async (req, res, next) => {
     try {
-        const {campaign_id, monetary_goal, description, campaign_length, category} = req.body;
+        const {description, campaign_id} = req.body;
 
-        axios.post('DS API url', campaign_id, monetary_goal, description, campaign_length, category)
+        axios.post('https://kickstartersuccess.herokuapp.com/predict', {description: description, campaign_id: campaign_id})
             .then(response => {
                 const predictions = response.data;
-                res.status(200).json({prediction: predictions})
+                res.status(200).json({description: description, prediction: predictions})
             })
             .catch(error => {
-                res.status(500).json({message: 'Error submitting form'});
+                res.status(400).json({message: 'Please input description and campaign_id'});
             })
     } catch(error) {
         next(error)
