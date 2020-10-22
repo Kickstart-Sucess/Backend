@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cross-env DB_ENV=testing jest --watch --verbose --detectOpenHandles",
+    "test": "cross-env NODE_ENV=testing jest --watchAll --verbose --detectOpenHandles",
     "server": "nodemon --require dotenv/config index",
     "start": "node index.js"
   },
