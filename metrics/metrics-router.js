@@ -11,7 +11,7 @@ router.post('/campaigns/:id/metrics', async (req, res, next) => {
         axios.post(`https://kickstartersuccess.herokuapp.com/predict?item=${description}`, {item: description})
             .then(response => {
                 const predictions = response.data;
-                res.status(200).json({description: description, descriptionn: 'hidhoa',descriptionnn: description, prediction: predictions, campaign_id: id})
+                res.status(200).json({description: description, descriptionn: 'hidhoa', descriptionnn: description, prediction: predictions, campaign_id: id})
             })
             .catch(error => {
                 res.status(400).json({message: 'Please input description'});
