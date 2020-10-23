@@ -157,16 +157,24 @@ Expected Body:
     {
         "name": "test 123",
         "user_id": 1,
-        "imageURL": 'https://www.comtix.com/wp-content/uploads/2019/08/elections-campaign-1024x791.jpg'
+        "imageURL": 'https://www.comtix.com/wp-content/uploads/2019/08/elections-campaign-1024x791.jpg',
+        "description": "hellooooo world"
     }
 
 Expected Response: returns object of created campaign in database 
 
-    {
-        "id": 3,
-        "name": "test 123", 
-        "imageURL": 'https://www.comtix.com/wp-content/uploads/2019/08/elections-campaign-1024x791.jpg'
+{
+    "newCampaign": {
+        "id": 1,
+        "name": "testing 123",
+        "user_id": 1,
+        "imageURL": "https://www.comtix.com/wp-content/uploads/2019/08/elections-campaign-1024x791.jpg",
+        "prediction": null
+    },
+    "predictions": {
+        "prediction": 0
     }
+}
 ```
 
 ### PUT Campaign By ID

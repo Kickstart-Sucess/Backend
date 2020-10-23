@@ -10,15 +10,15 @@ function add(campaign) {
 }
 
 function findById(id) {
-    return db('campaigns').select('id', 'name', 'user_id', 'imageURL').where({id}).first();
+    return db('campaigns').select('id', 'name', 'user_id', 'imageURL', 'prediction').where({id}).first();
 }
 
 function findBy(filter) {
-    return db('campaigns').select('id', 'name', 'user_id', 'imageURL').where(filter);
+    return db('campaigns').select('id', 'name', 'user_id', 'imageURL', 'prediction').where(filter);
 }
 
 function find() {
-    return db('campaigns').select('id', 'name', 'user_id', 'imageURL');
+    return db('campaigns').select('id', 'name', 'user_id', 'imageURL', 'prediction');
 }
 
 function remove(id) {

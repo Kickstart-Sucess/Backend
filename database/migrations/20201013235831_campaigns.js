@@ -20,6 +20,8 @@ exports.up = function(knex) {
             .onDelete('CASCADE')
             .onUpdate('CASCADE');
         table.text('imageURL').notNull();
+        table.text('description').notNull();
+        table.integer('prediction');
     })
 
     .createTable('metrics', table => {
