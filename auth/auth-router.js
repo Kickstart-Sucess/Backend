@@ -23,7 +23,7 @@ router.post('/register', async (req, res, next) => {
 
 		res.status(201).json(newUser)
 	} catch(err) {
-		res.status(400).json({message: "must input username, password, age (integer), and email"})
+		next(error);
 	}
 });
 
